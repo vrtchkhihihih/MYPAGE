@@ -1,12 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой проект</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Моя Визитка</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .card {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ddd;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    margin: 0 0 10px;
+    font-size: 24px;
+  }
+
+  p {
+    margin: 5px 0;
+    color: #555;
+  }
+
+  .buttons {
+    margin-top: 20px;
+  }
+
+  button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    margin: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+</style>
 </head>
+
 <body>
-    <h1>Тут будет нормальный сайт</h1>
-    <p></p>
+
+<div class="card">
+  <img src="https://via.placeholder.com/150" alt="Мое фото" class="avatar" id="avatar" />
+  <h1>Иван Иванов</h1>
+  <p>Frontend разработчик</p>
+  <p>ivan.ivanov@example.com</p>
+  <div class="buttons">
+    <button onclick="showAlert()">Позвонить</button>
+    <button onclick="changePhoto()">Сменить фото</button>
+  </div>
+</div>
+
+<script>
+  function showAlert() {
+    alert("Позвонить по номеру: +7 (123) 456-7890");
+  }
+
+  function changePhoto() {
+    const avatar = document.getElementById('avatar');
+    // Меняем изображение на другое
+    avatar.src = 'https://via.placeholder.com/150/0000FF/FFFFFF?text=New+Photo';
+  }
+</script>
+
 </body>
 </html>
