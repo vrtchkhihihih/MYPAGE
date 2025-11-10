@@ -1,95 +1,197 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Моя Визитка</title>
-
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-
-  .card {
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    max-width: 400px;
-    width: 100%;
-    text-align: center;
-  }
-
-  .avatar {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #ddd;
-    margin-bottom: 20px;
-  }
-
-  h1 {
-    margin: 0 0 10px;
-    font-size: 24px;
-  }
-
-  p {
-    margin: 5px 0;
-    color: #555;
-  }
-
-  .buttons {
-    margin-top: 20px;
-  }
-
-  button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 12px 20px;
-    margin: 5px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-
-  button:hover {
-    background-color: #0056b3;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интерактивная Визитка Разработчика</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
+    <!-- Фоновое изображение -->
+    <div class="background-overlay"></div>
+    
+    <!-- Уведомления -->
+    <div class="notification" id="notification"></div>
+    
+    <!-- Основной контейнер -->
+    <div class="container">
+        <!-- Заголовок -->
+        <header>
+            <div class="logo">DevCard</div>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i> Темная тема
+            </button>
+        </header>
 
-<div class="card">
-  <img src="https://via.placeholder.com/150" alt="Мое фото" class="avatar" id="avatar" />
-  <h1>Иван Иванов</h1>
-  <p>Frontend разработчик</p>
-  <p>ivan.ivanov@example.com</p>
-  <div class="buttons">
-    <button onclick="showAlert()">Позвонить</button>
-    <button onclick="changePhoto()">Сменить фото</button>
-  </div>
-</div>
+        <!-- Основной контент -->
+        <div class="main-content">
+            <!-- Карточка профиля -->
+            <div class="profile-card">
+                <div class="avatar-container">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Аватар" class="avatar" id="avatar">
+                    <button class="change-photo-btn" id="changePhotoBtn">
+                        <i class="fas fa-camera"></i>
+                    </button>
+                </div>
+                <h1 id="name">Алексей Петров</h1>
+                <div class="title" id="title">Full-Stack Разработчик</div>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span id="email">alexey.petrov@example.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span id="phone">+7 (123) 456-78-90</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span id="location">Москва, Россия</span>
+                    </div>
+                </div>
 
-<script>
-  function showAlert() {
-    alert("Позвонить по номеру: +7 (123) 456-7890");
-  }
+                <div class="skills">
+                    <div class="skill-tag">JavaScript</div>
+                    <div class="skill-tag">React</div>
+                    <div class="skill-tag">Node.js</div>
+                    <div class="skill-tag">Python</div>
+                    <div class="skill-tag">UI/UX Design</div>
+                </div>
 
-  function changePhoto() {
-    const avatar = document.getElementById('avatar');
-    // Меняем изображение на другое
-    avatar.src = 'https://via.placeholder.com/150/0000FF/FFFFFF?text=New+Photo';
-  }
-</script>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
 
+                <div class="language-selector">
+                    <button class="lang-btn active" data-lang="ru">RU</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+            </div>
+
+            <!-- Область контента -->
+            <div class="content-area">
+                <!-- Карточка "Обо мне" -->
+                <div class="card">
+                    <h2>Обо мне</h2>
+                    <p id="aboutText">Я full-stack разработчик с 5-летним опытом создания веб-приложений. Специализируюсь на JavaScript, React и Node.js. Люблю создавать интуитивно понятные и эффективные интерфейсы, которые решают реальные проблемы пользователей.</p>
+                    
+                    <div class="tabs">
+                        <div class="tab active" data-tab="projects">Проекты</div>
+                        <div class="tab" data-tab="experience">Опыт</div>
+                        <div class="tab" data-tab="education">Образование</div>
+                    </div>
+
+                    <div class="tab-content active" id="projects">
+                        <div class="project-grid">
+                            <div class="project-card">
+                                <div class="project-img">
+                                    <span>Интернет-магазин</span>
+                                </div>
+                                <div class="project-info">
+                                    <h3>E-commerce платформа</h3>
+                                    <p>Полнофункциональный интернет-магазин с системой оплаты</p>
+                                </div>
+                            </div>
+                            <div class="project-card">
+                                <div class="project-img">
+                                    <span>Мобильное приложение</span>
+                                </div>
+                                <div class="project-info">
+                                    <h3>Фитнес-трекер</h3>
+                                    <p>Приложение для отслеживания тренировок и питания</p>
+                                </div>
+                            </div>
+                            <div class="project-card">
+                                <div class="project-img">
+                                    <span>Корпоративный портал</span>
+                                </div>
+                                <div class="project-info">
+                                    <h3>Внутренняя система</h3>
+                                    <p>Портал для управления задачами и коммуникации в компании</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="experience">
+                        <h3>Опыт работы</h3>
+                        <div class="experience-item" style="margin-top: 15px;">
+                            <h4>Senior Full-Stack Developer</h4>
+                            <p>Tech Solutions Inc. | 2020 - настоящее время</p>
+                            <p>Разработка и поддержка веб-приложений, руководство командой разработчиков</p>
+                        </div>
+                        <div class="experience-item" style="margin-top: 15px;">
+                            <h4>Frontend Developer</h4>
+                            <p>WebStudio | 2018 - 2020</p>
+                            <p>Создание пользовательских интерфейсов для клиентских проектов</p>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="education">
+                        <h3>Образование</h3>
+                        <div class="education-item" style="margin-top: 15px;">
+                            <h4>Магистр компьютерных наук</h4>
+                            <p>Московский государственный университет | 2016 - 2018</p>
+                        </div>
+                        <div class="education-item" style="margin-top: 15px;">
+                            <h4>Бакалавр информационных технологий</h4>
+                            <p>Национальный исследовательский университет | 2012 - 2016</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка галереи -->
+                <div class="card">
+                    <h2>Галерея</h2>
+                    <p>Загрузите свои фотографии, чтобы показать свои проекты или интересы</p>
+                    
+                    <div class="photo-upload">
+                        <div class="upload-area" id="uploadArea">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Перетащите сюда фото или нажмите для загрузки</p>
+                            <input type="file" id="fileInput" accept="image/*" multiple style="display: none;">
+                        </div>
+                        <button class="btn" id="uploadBtn"><i class="fas fa-upload"></i> Загрузить фото</button>
+                    </div>
+
+                    <div class="gallery" id="gallery">
+                        <!-- Загруженные фото будут появляться здесь -->
+                    </div>
+                </div>
+
+                <!-- Карточка контактов -->
+                <div class="card">
+                    <h2>Свяжитесь со мной</h2>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="nameInput">Ваше имя</label>
+                            <input type="text" id="nameInput" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="emailInput">Email</label>
+                            <input type="email" id="emailInput" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="messageInput">Сообщение</label>
+                            <textarea id="messageInput" class="form-control" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-secondary"><i class="fas fa-paper-plane"></i> Отправить сообщение</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Футер -->
+        <footer>
+            <p>© 2023 Интерактивная визитка. Все права защищены.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
