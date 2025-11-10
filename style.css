@@ -35,7 +35,7 @@ body {
     padding: 20px;
     line-height: 1.6;
     position: relative;
-    background: url('assets/code-background.jpg') no-repeat center center fixed;
+    background: url('/assets/code-background.jpg.avif') no-repeat center center fixed;
     background-size: cover;
 }
 
